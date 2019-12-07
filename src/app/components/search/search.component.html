@@ -1,0 +1,8 @@
+<div class="pis-search" [ngClass]="{'_fixed': attachScroll}">
+  <div class="pis-search__content">
+    <form (ngSubmit)="searchProductInfo()">
+      <input ngModel name="url" class="pis-search-row" placeholder="Enter an URL..."/>
+      <button type="submit" class="pis-search__parse-btn">Parse</button>
+    </form>
+  </div>
+</div>

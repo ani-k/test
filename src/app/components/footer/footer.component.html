@@ -1,0 +1,30 @@
+<footer class="footer">
+<div class="footer__content">
+  <div class="footer-menu">
+    <div class="footer-menu__title">Menu 1</div>
+    <ul class="footer-menu__items">
+      <li class="footer-menu__item" *ngFor="let menuItem of menu1Items">
+        <a href="{{menuItem.link}}" class="link">{{menuItem.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-menu">
+    <div class="footer-menu__title">Menu 2</div>
+    <ul class="footer-menu__items">
+      <li class="footer-menu__item" *ngFor="let menuItem of menu2Items">
+        <a href="{{menuItem.link}}" class="link">{{menuItem.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-menu">
+    <div class="footer-menu__title">Contacts</div>
+    <ul class="footer-menu__items">
+      <li class="footer-menu__item" *ngFor="let menuItem of contactsMenuItems">
+        <span class="name">{{menuItem.name}}</span>
+        <span class="value">{{menuItem.value}}</span>
+      </li>
+    </ul>
+  </div>
+  <a class="to-top" href="#">Go To Top </a>
+</div>
+</footer>

@@ -1,0 +1,59 @@
+.pis-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+  &._fixed {
+    position: fixed;
+    top: 0;
+  }
+
+  &__content {
+    width: 1000px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin: 0 7px;
+  }
+
+  &-row {
+    border: 1px solid #E5E5E5;
+    flex-grow: 1;
+    height: 32px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    padding-left: 10px;
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #e5e5e5;
+      font-size: 14px;
+    }
+  }
+
+  &__parse-btn {
+    width: 116px;
+    height: 32px;
+    flex-shrink: 0;
+    background-color: #e5e5e5;
+    text-align: center;
+    color: white;
+    line-height: 32px;
+    font-size: 14px;
+    padding: 0;
+    border: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+  }
+}
