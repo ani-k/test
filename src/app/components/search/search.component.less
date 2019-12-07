@@ -31,6 +31,10 @@
       outline: none;
     }
 
+    &._active {
+      border: 1px solid #5DA9E0;
+    }
+
     &::placeholder {
       color: #e5e5e5;
       font-size: 14px;
@@ -41,7 +45,6 @@
     width: 116px;
     height: 32px;
     flex-shrink: 0;
-    background-color: #e5e5e5;
     text-align: center;
     color: white;
     line-height: 32px;
@@ -50,10 +53,29 @@
     border: 0;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+    background-color: #5DA9E0;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &[disabled] {
+      background-color: #e5e5e5;
+      cursor: default;
+    }
   }
 
   form {
     width: 100%;
     display: flex;
+    position: relative;
+
+    .warning {
+      position: absolute;
+      font-size: 12px;
+      top: -14px;
+      color: #b71111;
+    }
   }
 }
