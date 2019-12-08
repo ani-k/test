@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {error} from "util";
 import {SearchService} from "./search.service";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'pis-search',
@@ -21,15 +22,15 @@ export class SearchComponent implements OnInit {
     window.addEventListener('scroll', this.onScroll, true);
 
     this.form = new FormGroup({
-      url: new FormControl('', Validators.required, this.checkUrl)
+      url: new FormControl('', Validators.required)
     });
 
   }
 
   loadProducts() {
     this.searchService.getProducts()
-      .subscribe((responce => {
-        console.log(responce);
+      .subscribe(((response: JSON) => {
+        console.log(response);
       }));
   }
 
