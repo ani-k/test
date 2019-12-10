@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {ProductsResponse} from "./models/products-response.model";
-import {Product} from "./models/product.model";
+import {ProductsResponse} from './models/products-response.model';
+import {Product} from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,6 @@ import {Product} from "./models/product.model";
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'test';
   products: Product[] = [];
 
   onProductsUpdate(event: ProductsResponse) {

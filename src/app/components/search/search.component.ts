@@ -1,13 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
-import {error} from "util";
-import {SearchService} from "./search.service";
-import {HttpResponse} from "@angular/common/http";
-import {ProductsResponse} from "../../models/products-response.model";
-import {Product} from "../../models/product.model";
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {SearchService} from './search.service';
+import {ProductsResponse} from '../../models/products-response.model';
 
 @Component({
-  selector: 'pis-search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.less']
 })
@@ -37,7 +34,7 @@ export class SearchComponent implements OnInit {
       .subscribe(((response) => {
 
         response.products.forEach(product => {
-            // this.searchService.getProductDescription(product.link).subscribe(descr => product.description = descr);
+            this.searchService.getProductDescription(product.link).subscribe(descr => product.description = descr);
 
             console.log(product.link);
           }
@@ -48,13 +45,13 @@ export class SearchComponent implements OnInit {
   }
 
   onScroll = (event: any): void => {
-    const number = event.target.scrollingElement.scrollTop;
+    let number = event.target.scrollingElement.scrollTop;
     this.attachScroll = number > 60;
-  };
+  }
 
   searchProductInfo() {
     console.log('submited');
-  };
+  }
 
   checkUrl(control: FormControl) {
     if (!control.value) {

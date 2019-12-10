@@ -1,36 +1,36 @@
-<div class="pis-products__content">
-  <div class="pis-products">
-    <div class="pis-products__column">
-      <div class="pis-product__wrapper" *ngFor="let product of products index as i">
-        <div class="pis-product" *ngIf="i%3 == 0">
-          <div class="pis-product__title">
+<div class="products__content">
+  <div class="products">
+    <div class="products__column">
+      <div class="product__wrapper" *ngFor="let product of products index as i">
+        <div class="product" *ngIf="i%3 == 0">
+          <div class="product__title">
             [{{product.asin}}] {{product.title}}
           </div>
-          <div class="pis-product__description">
+          <div class="product__description">
             {{product.description}}
           </div>
         </div>
       </div>
     </div>
-    <div class="pis-products__column">
-      <div class="pis-product__wrapper" *ngFor="let product of products index as i">
-        <div class="pis-product" *ngIf="i%3 == 1">
-          <div class="pis-product__title">
+    <div class="products__column">
+      <div class="product__wrapper" *ngFor="let product of products index as i">
+        <div class="product" *ngIf="i%3 == 1">
+          <div class="product__title">
             [{{product.asin}}] {{product.title}}
           </div>
-          <div class="pis-product__description">
+          <div class="product__description">
             {{product.description}}
           </div>
         </div>
       </div>
     </div>
-    <div class="pis-products__column">
-      <div class="pis-product__wrapper" *ngFor="let product of products index as i">
-        <div class="pis-product" *ngIf="i%3 == 2">
-          <div class="pis-product__title">
+    <div class="products__column">
+      <div class="product__wrapper" *ngFor="let product of products index as i">
+        <div class="product" *ngIf="i%3 == 2">
+          <div class="product__title">
             [{{product.asin}}] {{product.title}}
           </div>
-          <div class="pis-product__description">
+          <div class="product__description">
             {{product.description}}
           </div>
         </div>

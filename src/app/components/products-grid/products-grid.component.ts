@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductsResponse} from "../../models/products-response.model";
-import {Product} from "../../models/product.model";
+import {ProductsResponse} from '../../models/products-response.model';
+import {Product} from '../../models/product.model';
 
 @Component({
-  selector: 'pis-products-grid',
+  selector: 'app-products-grid',
   templateUrl: './products-grid.component.html',
   styleUrls: ['./products-grid.component.less']
 })

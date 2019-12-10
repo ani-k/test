@@ -1,11 +1,11 @@
-<div class="pis-search" [ngClass]="{'_fixed': attachScroll}">
-  <div class="pis-search__content">
+<div class="search" [ngClass]="{'_fixed': attachScroll}">
+  <div class="search__content">
     <form [formGroup]="form" (ngSubmit)="searchProductInfo()">
       <input
         formControlName="url"
-        class="pis-search-row" placeholder="Enter an URL..."
+        class="search-row" placeholder="Enter an URL..."
         [ngClass]="{'_active': form.valid}"/>
-      <button [disabled]="form.invalid" type="submit" class="pis-search__parse-btn" (click)="loadProducts()" >Parse</button>
+      <button [disabled]="form.invalid" type="submit" class="search__parse-btn" (click)="loadProducts()" >Parse</button>
       <div class="warning" *ngIf="form.touched && form.invalid">Please, enter correct URL</div>
     </form>
   </div>

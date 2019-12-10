@@ -59,13 +59,13 @@ app.get('/curl', async function (req, res) {
 
 app.get('/desc', async function (req, res) {
   var description = await fetchProductsByUrl(url2),
-    $ = cheerio.load(products),
+    $ = cheerio.load(description),
     desc = $("#featurebullets_feature_div"),
-    r = $(this).find('.a-list-item').text(); //foreach list item get descr and concat it
-    res.json(r);
+    r = desc.find('.a-list-item').text();
+  res.json(r);
 });
 
-var server = app.listen(8081, function () {
+var server = app.listen(8083, function () {
 
   var host = server.address().address;
   var port = server.address().port;

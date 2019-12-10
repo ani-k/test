@@ -1,15 +1,15 @@
-<header class="pis-header">
-  <div class="pis-header__content">
-    <div class="pis-header__logo"></div>
-      <ul class="pis-header__menu">
-        <li class="pis-header__menu-item" *ngFor="let menuItem of menuItems">
+<header class="header">
+  <div class="header__content">
+    <div class="header__logo"></div>
+      <ul class="header__menu">
+        <li class="header__menu-item" *ngFor="let menuItem of menuItems">
           <a href="{{menuItem.link}}" class="name">{{menuItem.name}}</a>
         </li>
       </ul>
-    <div class="pis-header__auth">
-      <button disabled class="pis-header__auth-link">LOG IN</button>
-      <span class="pis-header__auth-sign">/</span>
-      <button disabled class="pis-header__auth-link">SIGN UP</button>
+    <div class="header__auth">
+      <button disabled class="header__auth-link">LOG IN</button>
+      <span class="header__auth-sign">/</span>
+      <button disabled class="header__auth-link">SIGN UP</button>
     </div>
   </div>
 </header>
