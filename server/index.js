@@ -4,9 +4,7 @@ var cors = require('cors');
 var fs = require("fs");
 var axios = require("axios");
 
-var cheerio = require("cheerio"),
-  url = "https://www.amazon.com/s?k=iphone+5s",
-  url2 = "https://www.amazon.com/Original-AppleiPhone-Compatible-Mobile-iPhone/dp/B08122N62P/ref=sr_1_1?keywords=iphone+5s&qid=1575916690&sr=8-1";
+var cheerio = require("cheerio");
 
 
 app.use(cors());
@@ -38,15 +36,16 @@ async function fetchProductsByUrl(url) {
       'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'
     }
   })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .catch(function (error) {});
+  if (!response) {
+    return null;
+  }
   return response.data;
 }
 
 app.get('/curl', async function (req, res) {
 
-  var products = await fetchProductsByUrl(url);
+  var products = await fetchProductsByUrl(decodeURI(req.query.url));
 
   var $ = cheerio.load(products),
     asin = $("div[data-asin]");
@@ -58,7 +57,7 @@ app.get('/curl', async function (req, res) {
 });
 
 app.get('/desc', async function (req, res) {
-  var description = await fetchProductsByUrl(url2),
+  var description = await fetchProductsByUrl(decodeURI(req.query.url)),
     $ = cheerio.load(description),
     desc = $("#featurebullets_feature_div"),
     r = desc.find('.a-list-item').text();

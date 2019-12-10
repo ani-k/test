@@ -1,5 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import {SearchService} from './search.service';
 import {ProductsResponse} from '../../models/products-response.model';
 
@@ -24,13 +31,14 @@ export class SearchComponent implements OnInit {
     window.addEventListener('scroll', this.onScroll, true);
 
     this.form = new FormGroup({
-      url: new FormControl('', Validators.required)
+      url: new FormControl('', [Validators.required, Validators.minLength(4), this.checkUrl()])
     });
 
   }
 
   loadProducts() {
-    this.searchService.getProducts()
+    const url = this.form.get('url').value;
+    this.searchService.getProducts(url)
       .subscribe(((response) => {
 
         response.products.forEach(product => {
@@ -47,17 +55,24 @@ export class SearchComponent implements OnInit {
   onScroll = (event: any): void => {
     let number = event.target.scrollingElement.scrollTop;
     this.attachScroll = number > 60;
-  }
+  };
 
   searchProductInfo() {
-    console.log('submited');
+    if (this.form.valid) {
+      this.loadProducts();
+    }
   }
 
-  checkUrl(control: FormControl) {
-    if (!control.value) {
-      return;
+  get url() {
+    return this.form.get('url');
+  }
+
+  checkUrl(): ValidatorFn {
+    return function (control: AbstractControl): ValidationErrors {
+      if (control.value.startsWith('https://www.amazon.com/')) {
+        return null;
+      } else return {'wrong URL': {value: control.value}}
     }
-    return null;
   }
 
 }
