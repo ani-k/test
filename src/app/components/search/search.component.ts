@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {error} from "util";
 import {SearchService} from "./search.service";
 import {HttpResponse} from "@angular/common/http";
+import {ProductsResponse} from "../../models/products-response.model";
+import {Product} from "../../models/product.model";
 
 @Component({
   selector: 'pis-search',
@@ -14,6 +16,9 @@ export class SearchComponent implements OnInit {
   attachScroll = false;
 
   form: FormGroup;
+
+  @Output()
+  products: EventEmitter<ProductsResponse> = new EventEmitter<ProductsResponse>();
 
   constructor(private searchService: SearchService) {
   }
@@ -29,8 +34,16 @@ export class SearchComponent implements OnInit {
 
   loadProducts() {
     this.searchService.getProducts()
-      .subscribe(((response: JSON) => {
-        console.log(response);
+      .subscribe(((response) => {
+
+        response.products.forEach(product => {
+            // this.searchService.getProductDescription(product.link).subscribe(descr => product.description = descr);
+
+            console.log(product.link);
+          }
+        );
+
+        this.products.emit(response);
       }));
   }
 
@@ -45,7 +58,7 @@ export class SearchComponent implements OnInit {
 
   checkUrl(control: FormControl) {
     if (!control.value) {
-      return ;
+      return;
     }
     return null;
   }

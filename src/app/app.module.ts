@@ -9,13 +9,15 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {SearchService} from "./components/search/search.service";
+import { ProductsGridComponent } from './components/products-grid/products-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsGridComponent
   ],
   imports: [
     BrowserModule,

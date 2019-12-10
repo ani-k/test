@@ -1,6 +1,8 @@
 <div class="page-wrapper">
   <pis-header></pis-header>
-  <pis-search></pis-search>
-  <section class="page-content"></section>
+  <pis-search (products)="onProductsUpdate($event)"></pis-search>
+  <section class="page-content">
+    <pis-products-grid [products]="products"></pis-products-grid>
+  </section>
   <pis-footer></pis-footer>
 </div>
