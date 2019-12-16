@@ -1,11 +1,15 @@
 <header class="header">
   <div class="header__content">
     <div class="header__logo"></div>
-    <div class="header-menu__select-wrapper">
-      <select class="header-menu__select">
-        <option *ngFor="let menuItem of menuItems"><a href="{{menuItem.link}}" class="name">{{menuItem.name}}</a>
-        </option>
-      </select>
+    <div class="header-menu-popover__wrapper" *ngIf="isSmallResolution; else: headerMenu">
+      <div class="header-menu-popover__icon" (click)="togglePopover()"></div>
+      <div class="header-menu-popover" *ngIf="isPopoverOpen">
+        <ul class="header-menu-popover__list">
+          <li class="header-menu-popover__list-item" (click)="togglePopover()" *ngFor="let menuItem of menuItems">
+            <a href="{{menuItem.link}}" class="name">{{menuItem.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <ul class="header__menu">
       <li class="header__menu-item" *ngFor="let menuItem of menuItems">
