@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProductsResponse} from '../../models/products-response.model';
 import {Product} from '../../models/product.model';
 
 @Component({
@@ -7,14 +6,11 @@ import {Product} from '../../models/product.model';
   templateUrl: './products-grid.component.html',
   styleUrls: ['./products-grid.component.less']
 })
-export class ProductsGridComponent implements OnInit {
+export class ProductsGridComponent {
 
   @Input()
   products: Product[];
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

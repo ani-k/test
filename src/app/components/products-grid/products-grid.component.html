@@ -3,7 +3,7 @@
     <div class="products__column">
       <div class="product__wrapper" *ngFor="let product of products index as i">
         <div class="product" *ngIf="i%3 == 0">
-          <div class="product__title">
+          <div class="product__title" ngxEllipsis [lines]="2">
             [{{product.asin}}] {{product.title}}
           </div>
           <div class="product__description">
@@ -15,7 +15,7 @@
     <div class="products__column">
       <div class="product__wrapper" *ngFor="let product of products index as i">
         <div class="product" *ngIf="i%3 == 1">
-          <div class="product__title">
+          <div class="product__title" ngxEllipsis [lines]="2">
             [{{product.asin}}] {{product.title}}
           </div>
           <div class="product__description">
@@ -27,7 +27,7 @@
     <div class="products__column">
       <div class="product__wrapper" *ngFor="let product of products index as i">
         <div class="product" *ngIf="i%3 == 2">
-          <div class="product__title">
+          <div class="product__title" ngxEllipsis [lines]="2">
             [{{product.asin}}] {{product.title}}
           </div>
           <div class="product__description">
@@ -39,6 +39,3 @@
 
   </div>
 </div>
-<ng-template #productTemplate>
-
-</ng-template>

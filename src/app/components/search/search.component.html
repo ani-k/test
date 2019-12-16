@@ -6,7 +6,7 @@
         class="search-row" placeholder="Enter an URL..."
         [ngClass]="{'_active': form.valid}"/>
       <button [disabled]="url.invalid" type="submit" class="search__parse-btn" >Parse</button>
-      <div class="warning" *ngIf="url.invalid">Please, enter correct URL</div>
+      <div class="warning" *ngIf="url.invalid && url.touched">Please, enter correct URL</div>
     </form>
   </div>
 </div>

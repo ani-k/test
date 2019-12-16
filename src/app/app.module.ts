@@ -8,8 +8,9 @@ import {SearchComponent} from './components/search/search.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {SearchService} from './components/search/search.service';
+import {ProductsService} from './components/services/products.service';
 import {ProductsGridComponent} from './components/products-grid/products-grid.component';
+import {NgxMultiLineEllipsisModule} from 'ngx-multi-line-ellipsis';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,11 @@ import {ProductsGridComponent} from './components/products-grid/products-grid.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMultiLineEllipsisModule
   ],
   providers: [
-    SearchService
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })

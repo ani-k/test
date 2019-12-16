@@ -7,7 +7,7 @@ import {
   ValidatorFn,
   Validators
 } from '@angular/forms';
-import {SearchService} from './search.service';
+import {ProductsService} from '../services/products.service';
 import {ProductsResponse} from '../../models/products-response.model';
 
 @Component({
@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   @Output()
   products: EventEmitter<ProductsResponse> = new EventEmitter<ProductsResponse>();
 
-  constructor(private searchService: SearchService) {
+  constructor(private productsService: ProductsService) {
   }
 
   ngOnInit() {
@@ -38,24 +38,14 @@ export class SearchComponent implements OnInit {
 
   loadProducts() {
     const url = this.form.get('url').value;
-    this.searchService.getProducts(url)
-      .subscribe(((response) => {
-
-        response.products.forEach(product => {
-            this.searchService.getProductDescription(product.link).subscribe(descr => product.description = descr);
-
-            console.log(product.link);
-          }
-        );
-
-        this.products.emit(response);
-      }));
+    this.productsService.getProducts(url)
+      .subscribe((response) => this.products.emit(response));
   }
 
   onScroll = (event: any): void => {
-    let number = event.target.scrollingElement.scrollTop;
-    this.attachScroll = number > 60;
-  };
+    const scrollTop = event.target.scrollingElement.scrollTop;
+    this.attachScroll = scrollTop > 60;
+  }
 
   searchProductInfo() {
     if (this.form.valid) {
@@ -68,11 +58,12 @@ export class SearchComponent implements OnInit {
   }
 
   checkUrl(): ValidatorFn {
-    return function (control: AbstractControl): ValidationErrors {
+    return (control: AbstractControl): ValidationErrors => {
       if (control.value.startsWith('https://www.amazon.com/')) {
         return null;
-      } else return {'wrong URL': {value: control.value}}
-    }
+      } else {
+        return {'wrong URL': {value: control.value}};
+      }
+    };
   }
-
 }
