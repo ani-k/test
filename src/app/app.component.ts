@@ -42,7 +42,7 @@ export class AppComponent {
             catchError(val => {
               const errorResponse = new DescriptionResponse();
               errorResponse.asin = obj.asin;
-              errorResponse.description = 'Error load description!';
+              errorResponse.description = 'Error!';
               return of(errorResponse);
             })
           );

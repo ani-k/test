@@ -32,3 +32,34 @@ ul {
 button {
   font-family: "Roboto Regular", sans-serif;
 }
+
+.loader {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border-bottom: 4px solid #314e68;
+  border-left: 4px solid #314e68;
+  -webkit-animation: rotation 2.5s infinite linear;
+  position: relative;
+
+  &-inner {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border-top: 4px solid #5da9e0;
+    border-left: 4px solid #5da9e0;
+    -webkit-animation: rotation 2.5s infinite linear;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(359deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+  }
+}

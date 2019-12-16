@@ -1,41 +1,25 @@
-<div class="products__content">
-  <div class="products">
-    <div class="products__column">
-      <div class="product__wrapper" *ngFor="let product of products index as i">
-        <div class="product" *ngIf="i%3 == 0">
-          <div class="product__title" ngxEllipsis [lines]="2">
-            [{{product.asin}}] {{product.title}}
-          </div>
-          <div class="product__description">
-            {{product.description}}
-          </div>
-        </div>
-      </div>
+<div class="products-grid__content">
+  <div class="products-grid">
+    <div class="products-grid__column">
+      <ng-container *ngFor="let product of products index as i">
+        <ng-container *ngIf="i%3 == 0">
+          <app-product [product]="product"></app-product>
+        </ng-container>
+      </ng-container>
     </div>
-    <div class="products__column">
-      <div class="product__wrapper" *ngFor="let product of products index as i">
-        <div class="product" *ngIf="i%3 == 1">
-          <div class="product__title" ngxEllipsis [lines]="2">
-            [{{product.asin}}] {{product.title}}
-          </div>
-          <div class="product__description">
-            {{product.description}}
-          </div>
-        </div>
-      </div>
+    <div class="products-grid__column">
+      <ng-container *ngFor="let product of products index as i">
+        <ng-container *ngIf="i%3 == 1">
+          <app-product [product]="product"></app-product>
+        </ng-container>
+      </ng-container>
     </div>
-    <div class="products__column">
-      <div class="product__wrapper" *ngFor="let product of products index as i">
-        <div class="product" *ngIf="i%3 == 2">
-          <div class="product__title" ngxEllipsis [lines]="2">
-            [{{product.asin}}] {{product.title}}
-          </div>
-          <div class="product__description">
-            {{product.description}}
-          </div>
-        </div>
-      </div>
+    <div class="products-grid__column">
+      <ng-container *ngFor="let product of products index as i">
+        <ng-container *ngIf="i%3 == 2" >
+          <app-product [product]="product"></app-product>
+        </ng-container>
+      </ng-container>
     </div>
-
   </div>
 </div>

@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ProductsService} from './components/services/products.service';
 import {ProductsGridComponent} from './components/products-grid/products-grid.component';
 import {NgxMultiLineEllipsisModule} from 'ngx-multi-line-ellipsis';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {NgxMultiLineEllipsisModule} from 'ngx-multi-line-ellipsis';
     HeaderComponent,
     SearchComponent,
     FooterComponent,
-    ProductsGridComponent
+    ProductsGridComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

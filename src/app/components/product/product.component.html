@@ -1,0 +1,9 @@
+<div class="product__title" ngxEllipsis [lines]="2">
+  [{{product.asin}}] {{product.title}}
+</div>
+<div class="loader" *ngIf="!product.description">
+  <div class="loader-inner"></div>
+</div>
+<div class="product__description">
+  {{product.description}}
+</div>
